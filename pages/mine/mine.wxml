@@ -1,0 +1,72 @@
+<view class="container">
+  <!-- 用户信息卡片 -->
+  <view class="user-card">
+    <view class="user-left">
+      <view class="avatar-wrap" wx:if="{{isLogin}}">
+        <image
+          class="avatar"
+          src="{{userInfo.avatarUrl ? userInfo.avatarUrl : '/images/default_avatar.png'}}"
+          mode="aspectFill"
+        />
+        <button class="avatar-overlay" open-type="chooseAvatar" bindchooseavatar="onChooseAvatar"></button>
+      </view>
+      <view class="avatar-wrap" wx:else>
+        <image
+          class="avatar"
+          src="/images/default_avatar.png"
+          mode="aspectFill"
+        />
+      </view>
+      <view class="user-info" bindtap="goAccount">
+        <view class="nickname">{{isLogin ? userInfo.nickname : '未登录'}}</view>
+        <view class="arrow">></view>
+      </view>
+    </view>
+    <view class="user-right" wx:if="{{!isLogin}}">
+      <button class="login-btn" open-type="getPhoneNumber" bindgetphonenumber="onGetPhone">
+        立即登录
+      </button>
+    </view>
+  </view>
+
+  <!-- 功能列表 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="goProjects">
+      <view class="menu-text">我的项目</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="goFavorites">
+      <view class="menu-text">我的收藏</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onContact">
+      <view class="menu-text">联系我们</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onFeedback">
+      <view class="menu-text">意见反馈</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onAbout">
+      <view class="menu-text">关于我们</view>
+      <view class="menu-arrow">></view>
+    </view>
+  </view>
+
+  <!-- 版本号 -->
+  <view class="version">版本 {{version}}</view>
+
+  <!-- 联系我们弹窗 -->
+  <view class="modal-mask" wx:if="{{showContact}}" bindtap="closeContact" catchtouchmove="preventTouchMove">
+    <view class="modal-content" catchtap="preventTouchMove">
+      <view class="modal-title">联系我们</view>
+      <view class="contact-row">
+        <view class="contact-name">刘满秋：</view>
+        <view class="contact-phone" bindtap="makePhoneCall">18779728272</view>
+      </view>
+      <view class="modal-btn" bindtap="closeContact">关闭</view>
+    </view>
+  </view>
+
+
+</view>

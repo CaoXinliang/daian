@@ -1,0 +1,76 @@
+.container {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+}
+
+.menu-list {
+  margin-top: 20rpx;
+  background-color: #ffffff;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.menu-item:last-child {
+  border-bottom: none;
+}
+
+.menu-text {
+  flex: 1;
+  font-size: 30rpx;
+  color: #333333;
+}
+
+.menu-arrow {
+  font-size: 28rpx;
+  color: #cccccc;
+}
+
+/* 弹窗 */
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+}
+
+.modal-content {
+  width: 600rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 40rpx;
+  box-sizing: border-box;
+}
+
+.modal-title {
+  font-size: 34rpx;
+  font-weight: bold;
+  color: #333333;
+  text-align: center;
+  margin-bottom: 30rpx;
+}
+
+.modal-text {
+  font-size: 28rpx;
+  color: #666666;
+  line-height: 1.8;
+  margin-bottom: 40rpx;
+}
+
+.modal-btn {
+  text-align: center;
+  font-size: 30rpx;
+  color: #4AA39C;
+  padding: 20rpx 0;
+  border-top: 1rpx solid #f0f0f0;
+}

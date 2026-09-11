@@ -1,0 +1,101 @@
+<!-- 自定义导航栏 -->
+<view class="custom-nav" style="height: {{navTotalHeight}}px;">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-title-bar">
+    <view class="nav-back-btn" wx:if="{{canBack}}" bindtap="goBack">
+      <text class="nav-back-arrow">‹</text>
+    </view>
+    <text class="nav-title">{{storeInfo.bannerTitle}}</text>
+  </view>
+</view>
+
+<!-- 页面主体 -->
+<view class="container" style="padding-top: {{navTotalHeight}}px;">
+
+  <!-- 顶部横幅 -->
+  <view class="banner-section">
+    <view class="banner-overlay"></view>
+    <view class="banner-content">
+      <text class="banner-title">{{storeInfo.bannerTitle}}</text>
+      <text class="banner-subtitle">{{storeInfo.bannerSubtitle}}</text>
+    </view>
+  </view>
+
+  <!-- 分类区块 -->
+  <block wx:for="{{sections}}" wx:key="title" wx:for-item="section">
+    <view class="section-block">
+      <view class="section-header">
+        <view class="section-title-wrap">
+          <text class="section-title">{{section.title}}</text>
+          <text class="section-subtitle">{{section.subtitle}}</text>
+        </view>
+      </view>
+      <view class="category-grid">
+        <view
+          class="category-card"
+          wx:for="{{section.categories}}"
+          wx:key="id"
+          wx:for-item="cat"
+          data-category-id="{{cat.id}}"
+          bindtap="onCategoryTap"
+        >
+          <view class="category-card-inner">
+            <image
+              wx:if="{{categoryImages[cat.id]}}"
+              class="category-image"
+              src="{{categoryImages[cat.id]}}"
+              mode="aspectFill"
+              lazy-load
+            ></image>
+            <view wx:else class="category-image-placeholder">
+              <text class="placeholder-text">{{cat.name}}</text>
+            </view>
+            <view class="category-label">
+              <text class="category-name">{{cat.name}}</text>
+            </view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </block>
+
+  <!-- 店铺信息栏 -->
+  <view class="store-info-bar">
+    <view class="store-logo-wrap">
+      <view class="store-logo-icon">
+        <text class="store-logo-emoji">💡</text>
+      </view>
+      <view class="store-info-text">
+        <text class="store-name">{{storeInfo.name}}</text>
+        <text class="store-tagline">{{storeInfo.tagline}}</text>
+      </view>
+    </view>
+    <view class="store-action-icons">
+      <view class="store-action-btn" bindtap="onCallPhone">
+        <text class="action-icon">📞</text>
+      </view>
+      <view class="store-action-btn" bindtap="onContact">
+        <text class="action-icon">💬</text>
+      </view>
+      <view class="store-action-btn" bindtap="onLocation">
+        <text class="action-icon">📍</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 底部操作栏 -->
+  <view class="bottom-bar">
+    <view class="bottom-btn" bindtap="onFavorite">
+      <text class="bottom-btn-icon {{isFavorited ? 'active' : ''}}">{{isFavorited ? '★' : '☆'}}</text>
+      <text class="bottom-btn-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
+    </view>
+    <button class="bottom-btn share-btn" open-type="share">
+      <text class="bottom-btn-icon">↗</text>
+      <text class="bottom-btn-text">分享</text>
+    </button>
+    <view class="bottom-btn" bindtap="onMore">
+      <text class="bottom-btn-icon">☰</text>
+      <text class="bottom-btn-text">更多</text>
+    </view>
+  </view>
+</view>

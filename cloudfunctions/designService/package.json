@@ -1,0 +1,9 @@
+{
+  "name": "designService",
+  "version": "1.0.0",
+  "description": "设计服务：服务列表+详情",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

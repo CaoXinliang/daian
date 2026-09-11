@@ -1,0 +1,26 @@
+<view class="upload-page">
+  <view class="header">
+    <text class="title">图片上传到云存储</text>
+    <text class="desc">将 images 文件夹中所有图片上传到微信云存储 store/store1 文件夹。</text>
+  </view>
+
+  <view class="progress-area" wx:if="{{uploading || done}}">
+    <view class="progress-bar-bg">
+      <view class="progress-bar-fill" style="width: {{progress}}%;"></view>
+    </view>
+    <text class="progress-text">{{uploadedCount}}/{{totalNum}} ({{progress}}%)</text>
+  </view>
+
+  <view class="log-area" wx:if="{{uploadLog.length > 0}}">
+    <text class="log-title">上传日志</text>
+    <view class="log-list">
+      <text class="log-item" wx:for="{{uploadLog}}" wx:key="index">{{item}}</text>
+    </view>
+  </view>
+
+  <button class="upload-btn" bindtap="startUpload" disabled="{{uploading}}">
+    {{uploading ? '上传中...' : '开始上传'}}
+  </button>
+
+  <button class="back-btn" wx:if="{{done}}" bindtap="goBack">返回</button>
+</view>

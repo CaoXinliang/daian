@@ -1,0 +1,66 @@
+<view class="detail-page">
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <block wx:elif="{{service}}">
+    <!-- 顶部大图区 -->
+    <view class="top-hero">
+      <view class="top-hero-emoji">🎨</view>
+      <view class="top-hero-title">{{service.name}}</view>
+      <view class="top-hero-desc">{{service.desc}}</view>
+    </view>
+
+    <!-- 价格与交付 -->
+    <view class="info-card">
+      <view class="info-row">
+        <view class="info-label">参考价格</view>
+        <view class="info-value price">¥{{service.price_min}} - ¥{{service.price_max}}</view>
+      </view>
+      <view class="info-divider"></view>
+      <view class="info-row">
+        <view class="info-label">交付周期</view>
+        <view class="info-value">{{service.delivery_days}}天</view>
+      </view>
+    </view>
+
+    <!-- 服务特点 -->
+    <view class="section">
+      <view class="section-title">服务特点</view>
+      <view class="feature-list">
+        <view class="feature-item" wx:for="{{service.features}}" wx:key="*this">
+          <text class="feature-check">✓</text>
+          <text class="feature-text">{{item}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 服务流程 -->
+    <view class="section">
+      <view class="section-title">服务流程</view>
+      <view class="process-list">
+        <view class="process-item" wx:for="{{service.process}}" wx:key="title">
+          <view class="process-step">{{index + 1}}</view>
+          <view class="process-info">
+            <view class="process-title">{{item.title}}</view>
+            <view class="process-desc">{{item.desc}}</view>
+          </view>
+          <view class="process-line" wx:if="{{index < service.process.length - 1}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <view class="bottom-space"></view>
+
+    <!-- 底部按钮 -->
+    <view class="bottom-bar">
+      <button class="submit-btn" bindtap="onSubmitDemand">立即提交需求</button>
+    </view>
+  </block>
+
+  <view class="error-wrap" wx:else>
+    <text class="error-text">{{error || '加载失败'}}</text>
+  </view>
+</view>

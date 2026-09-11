@@ -1,0 +1,53 @@
+<!-- 顶部导航栏（滚动时显示标题） -->
+<view class="custom-nav {{navBarVisible ? 'nav-solid' : 'nav-transparent'}}" style="height: {{navTotalHeight}}px;">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-content">
+    <view class="nav-back" bindtap="goBack">
+      <view class="nav-back-circle">
+        <text class="nav-back-arrow">‹</text>
+      </view>
+    </view>
+    <text class="nav-title" wx:if="{{navBarVisible}}">{{good.name}}</text>
+  </view>
+</view>
+
+<!-- 页面主体 -->
+<view class="container">
+
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="error-wrap" wx:elif="{{error}}">
+    <text class="error-text">{{error}}</text>
+  </view>
+
+  <!-- 商品详情 -->
+  <block wx:elif="{{good}}">
+    <!-- 商品名称在页面顶部 -->
+    <view class="page-name-wrap" style="padding-top: {{navTotalHeight + 10}}px;">
+      <text class="page-name good-name">{{good.name}}</text>
+    </view>
+
+    <!-- 商品图片（封面图 + 其他图片，无间距） -->
+    <view class="good-images" wx:if="{{previewImages.length > 0}}">
+      <image class="good-img" wx:for="{{previewImages}}" wx:key="*this"
+             src="{{item}}" mode="widthFix" data-src="{{item}}" bindtap="onPreviewImage"></image>
+    </view>
+
+    <!-- 底部操作栏（不固定，放在页面最底部） -->
+    <view class="bottom-bar">
+      <button class="bottom-btn bottom-btn-share" open-type="share">
+        <text class="bottom-btn-icon">↗</text>
+        <text class="bottom-btn-text">分享</text>
+      </button>
+      <view class="bottom-btn" bindtap="onMore">
+        <text class="bottom-btn-icon">☰</text>
+        <text class="bottom-btn-text">更多</text>
+      </view>
+    </view>
+  </block>
+</view>

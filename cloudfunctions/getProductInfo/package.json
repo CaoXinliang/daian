@@ -1,0 +1,9 @@
+{
+  "name": "getProductInfo",
+  "version": "1.0.0",
+  "description": "获取产品信息、模板配置和商品数据",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

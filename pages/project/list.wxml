@@ -1,0 +1,42 @@
+<view class="list-page">
+  <!-- 顶部tab -->
+  <view class="tab-bar">
+    <scroll-view scroll-x enable-flex class="tab-scroll">
+      <view class="tab-item {{activeTab === item.key ? 'active' : ''}}"
+            wx:for="{{tabs}}" wx:key="key"
+            data-key="{{item.key}}" bindtap="onTabTap">
+        <text>{{item.text}}</text>
+      </view>
+    </scroll-view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 项目列表 -->
+  <view class="project-list" wx:elif="{{list.length > 0}}">
+    <view class="project-card" wx:for="{{list}}" wx:key="id"
+          data-id="{{item.id}}" bindtap="onProjectTap">
+      <view class="project-top">
+        <view class="project-service">{{item.service_name}}</view>
+        <view class="project-status" style="color: {{item.status_color}};">
+          {{item.status_text}}
+        </view>
+      </view>
+      <view class="project-name">{{item.project_name}}</view>
+      <view class="project-bottom">
+        <text class="project-order">编号：{{item.order_no}}</text>
+        <text class="project-time">{{item.update_time}}</text>
+      </view>
+    </view>
+  </view>
+
+  <!-- 空状态 -->
+  <view class="empty-wrap" wx:else>
+    <text class="empty-icon">📋</text>
+    <text class="empty-text">暂无项目</text>
+  </view>
+</view>

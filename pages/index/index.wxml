@@ -1,0 +1,102 @@
+<view class="index-page">
+  <!-- 固定导航栏（滚动后显示标题） -->
+  <view class="nav-bar {{showTitle ? 'nav-solid' : 'nav-transparent'}}">
+    <view class="nav-back-btn" wx:if="{{showBackBtn}}" bindtap="goBackToTemplate">
+      <text class="nav-back-arrow">‹</text>
+    </view>
+    <block wx:if="{{showTitle}}">
+      <image class="nav-logo" src="/images/daianlogo.png" mode="aspectFit"></image>
+      <text class="nav-title">岱安传媒</text>
+    </block>
+  </view>
+
+  <!-- 顶部品牌区（延伸到手机顶部） -->
+  <view class="hero-section" style="padding-top: {{navTotalHeight + 10}}px;">
+    <view class="hero-brand">
+      <image class="hero-logo" src="/images/daianlogo.png" mode="aspectFit"></image>
+      <text class="hero-brand-name">岱安传媒</text>
+    </view>
+    <view class="hero-slogan">所有的相遇<br/>都是久别重逢</view>
+    <view class="hero-desc">本地生活 · 老板IP · AI获客 · 小程序开发</view>
+  </view>
+
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <block wx:else>
+    <!-- 核心服务 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">核心服务</text>
+        <text class="section-sub">面向实体店老板</text>
+      </view>
+
+      <view class="service-grid">
+        <view class="service-card" wx:for="{{services}}" wx:key="id"
+              data-id="{{item.id}}" bindtap="onServiceTap">
+          <view class="service-icon-wrap {{index === 0 ? 'icon-blue' : index === 1 ? 'icon-orange' : index === 2 ? 'icon-purple' : 'icon-green'}}">
+            <text class="service-icon">{{index === 0 ? '🏠' : index === 1 ? '👤' : index === 2 ? '🤖' : '📱'}}</text>
+          </view>
+          <view class="service-card-name">{{item.name}}</view>
+          <view class="service-card-desc">{{item.desc}}</view>
+          <view class="service-card-price">¥{{item.price_min}}起</view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 精选案例 -->
+    <view class="section" wx:if="{{cases.length > 0}}">
+      <view class="section-header">
+        <text class="section-title">精选案例</text>
+      </view>
+      <scroll-view class="cases-scroll" scroll-x enable-flex>
+        <view class="case-card" wx:for="{{cases}}" wx:key="id"
+              data-pid="{{item.product_id}}" bindtap="onCaseTap">
+          <image class="case-cover" src="{{item.cover}}" mode="aspectFill" wx:if="{{item.cover}}"></image>
+          <view class="case-cover case-cover-placeholder" wx:else>
+            <text class="case-emoji">🖼️</text>
+          </view>
+          <view class="case-title">{{item.title}}</view>
+        </view>
+      </scroll-view>
+    </view>
+
+    <!-- 公司介绍 -->
+    <view class="section">
+      <view class="section-header">
+        <text class="section-title">关于我们</text>
+      </view>
+      <view class="intro-card">
+        <view class="intro-row">
+          <text class="intro-label">公司</text>
+          <text class="intro-value">赣州岱安传媒有限公司</text>
+        </view>
+        <view class="intro-divider"></view>
+        <view class="intro-row">
+          <text class="intro-label">联系人</text>
+          <text class="intro-value">刘满秋</text>
+        </view>
+        <view class="intro-divider"></view>
+        <view class="intro-row">
+          <text class="intro-label">电话</text>
+          <text class="intro-value">187-7972-8272</text>
+        </view>
+        <view class="intro-divider"></view>
+        <view class="intro-row">
+          <text class="intro-label">地址</text>
+          <text class="intro-value">南康区金融中心国际新媒体中心4栋-601</text>
+        </view>
+      </view>
+    </view>
+
+    <view class="bottom-space"></view>
+  </block>
+
+  <!-- 底部悬浮提交按钮 -->
+  <view class="submit-float" bindtap="onSubmitDemand">
+    <text class="submit-float-text">提交合作需求</text>
+  </view>
+</view>

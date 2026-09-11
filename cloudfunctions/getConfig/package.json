@@ -1,0 +1,9 @@
+{
+  "name": "getConfig",
+  "version": "1.0.0",
+  "description": "获取配置项",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

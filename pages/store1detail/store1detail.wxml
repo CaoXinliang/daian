@@ -1,0 +1,77 @@
+<!-- 自定义导航栏 -->
+<view class="custom-nav" style="height: {{navTotalHeight}}px;">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-title-bar">
+    <view class="nav-back-btn" bindtap="goBack">
+      <text class="nav-back-arrow">‹</text>
+    </view>
+    <text class="nav-title">{{product.name}}</text>
+  </view>
+</view>
+
+<!-- 产品详情页 -->
+<view class="container" style="padding-top: {{navTotalHeight}}px;">
+
+  <!-- 产品主图 -->
+  <view class="hero-section" wx:if="{{heroImage}}">
+    <image
+      class="hero-image"
+      src="{{heroImage}}"
+      mode="widthFix"
+      lazy-load
+      data-index="0"
+      bindtap="previewImage"
+    ></image>
+  </view>
+
+  <!-- 产品标题 -->
+  <view class="product-title-section">
+    <text class="product-title-text">{{product.name}}</text>
+  </view>
+
+  <!-- 产品规格表 -->
+  <view class="specs-section" wx:if="{{product.specs.length > 0}}">
+    <view class="specs-table">
+      <view class="specs-row" wx:for="{{product.specs}}" wx:key="label">
+        <view class="specs-label">
+          <text class="specs-label-text">{{item.label}}</text>
+        </view>
+        <view class="specs-value">
+          <text class="specs-value-text">{{item.value}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <!-- 产品详情图片 -->
+  <view class="detail-images" wx:if="{{detailImages.length > 0}}">
+    <image
+      wx:for="{{detailImages}}"
+      wx:key="index"
+      class="detail-image"
+      src="{{item}}"
+      mode="widthFix"
+      lazy-load
+      data-index="{{index + 1}}"
+      bindtap="previewImage"
+    ></image>
+  </view>
+
+  <view class="bottom-space"></view>
+</view>
+
+<!-- 底部操作栏 -->
+<view class="bottom-bar">
+  <view class="bottom-btn" bindtap="onFavorite">
+    <text class="bottom-btn-icon {{isFavorited ? 'active' : ''}}">{{isFavorited ? '★' : '☆'}}</text>
+    <text class="bottom-btn-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
+  </view>
+  <button class="bottom-btn share-btn" open-type="share">
+    <text class="bottom-btn-icon">↗</text>
+    <text class="bottom-btn-text">分享</text>
+  </button>
+  <view class="bottom-btn" bindtap="onMore">
+    <text class="bottom-btn-icon">☰</text>
+    <text class="bottom-btn-text">更多</text>
+  </view>
+</view>

@@ -1,0 +1,192 @@
+/* 自定义导航栏 */
+.custom-nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background-color: #ffffff;
+  z-index: 999;
+  border-bottom: 1rpx solid #eeeeee;
+}
+
+.nav-title-bar {
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-back-btn {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.nav-back-arrow {
+  font-size: 44rpx;
+  color: #333333;
+  line-height: 1;
+}
+
+.nav-title {
+  font-size: 30rpx;
+  font-weight: 600;
+  color: #333333;
+  max-width: 400rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* 页面容器 */
+.container {
+  background-color: #ffffff;
+  padding-bottom: 120rpx;
+  min-height: 100vh;
+}
+
+/* 产品主图 */
+.hero-section {
+  width: 100%;
+}
+
+.hero-image {
+  width: 100%;
+  display: block;
+}
+
+/* 产品标题 */
+.product-title-section {
+  padding: 30rpx;
+  border-bottom: 1rpx solid #f0f0f0;
+}
+
+.product-title-text {
+  font-size: 36rpx;
+  font-weight: bold;
+  color: #333333;
+  line-height: 1.4;
+}
+
+/* 规格表 */
+.specs-section {
+  padding: 30rpx;
+}
+
+.specs-table {
+  border: 1rpx solid #e8e8e8;
+  border-radius: 12rpx;
+  overflow: hidden;
+}
+
+.specs-row {
+  display: flex;
+  border-bottom: 1rpx solid #e8e8e8;
+}
+
+.specs-row:last-child {
+  border-bottom: none;
+}
+
+.specs-label {
+  width: 180rpx;
+  flex-shrink: 0;
+  padding: 24rpx 30rpx;
+  background-color: #fafafa;
+  display: flex;
+  align-items: center;
+}
+
+.specs-label-text {
+  font-size: 28rpx;
+  color: #666666;
+  font-weight: 500;
+}
+
+.specs-value {
+  flex: 1;
+  padding: 24rpx 30rpx;
+  display: flex;
+  align-items: center;
+}
+
+.specs-value-text {
+  font-size: 28rpx;
+  color: #333333;
+}
+
+/* 详情图片 */
+.detail-images {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-image {
+  width: 100%;
+  display: block;
+}
+
+.bottom-space {
+  height: 20rpx;
+}
+
+/* 底部操作栏 */
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100rpx;
+  background-color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-top: 1rpx solid #eeeeee;
+  padding-bottom: env(safe-area-inset-bottom);
+  z-index: 100;
+}
+
+.bottom-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  line-height: normal;
+}
+
+.bottom-btn::after {
+  border: none;
+}
+
+.bottom-btn-icon {
+  font-size: 36rpx;
+  color: #666666;
+  margin-bottom: 4rpx;
+}
+
+.bottom-btn-icon.active {
+  color: #f5a623;
+}
+
+.bottom-btn-text {
+  font-size: 22rpx;
+  color: #666666;
+}
+
+.share-btn {
+  background: transparent;
+}
+
+.share-btn .bottom-btn-text {
+  color: #666666;
+}

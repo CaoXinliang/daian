@@ -1,0 +1,89 @@
+<view class="form-page">
+  <view class="form-scroll">
+
+    <!-- 项目类型 -->
+    <view class="form-section">
+      <view class="form-section-title">项目信息</view>
+      <view class="form-card">
+        <view class="form-item" bindtap="onServicePicker">
+          <view class="form-label">设计服务</view>
+          <picker range="{{services}}" range-key="name" value="{{serviceIndex}}" bindchange="onServiceChange">
+            <view class="form-value">
+              <text class="{{serviceId ? '' : 'placeholder'}}">{{serviceName || '请选择'}}</text>
+              <text class="form-arrow">›</text>
+            </view>
+          </picker>
+        </view>
+        <view class="form-divider"></view>
+        <view class="form-item">
+          <view class="form-label">项目名称</view>
+          <input class="form-input" placeholder="请输入项目名称" placeholder-class="placeholder"
+                 value="{{projectName}}" bindinput="onProjectNameInput" maxlength="50"/>
+        </view>
+      </view>
+    </view>
+
+    <!-- 预算与时间 -->
+    <view class="form-section">
+      <view class="form-section-title">预算与时间</view>
+      <view class="form-card">
+        <view class="form-item">
+          <view class="form-label">预算区间</view>
+          <picker range="{{budgetOptions}}" range-key="label" value="{{budgetIndex}}" bindchange="onBudgetChange">
+            <view class="form-value">
+              <text>{{budgetOptions[budgetIndex].label}}</text>
+              <text class="form-arrow">›</text>
+            </view>
+          </picker>
+        </view>
+        <view class="form-divider"></view>
+        <view class="form-item">
+          <view class="form-label">期望交付</view>
+          <picker mode="date" value="{{deadline}}" bindchange="onDeadlineChange" start="2024-01-01" end="2030-12-31">
+            <view class="form-value">
+              <text class="{{deadline ? '' : 'placeholder'}}">{{deadline || '请选择日期'}}</text>
+              <text class="form-arrow">›</text>
+            </view>
+          </picker>
+        </view>
+      </view>
+    </view>
+
+    <!-- 需求描述 -->
+    <view class="form-section">
+      <view class="form-section-title">需求描述</view>
+      <view class="form-card textarea-card">
+        <textarea class="form-textarea" placeholder="请描述您的设计需求，包括风格、用途、参考方向等..."
+                  placeholder-class="placeholder"
+                  value="{{description}}" bindinput="onDescInput" maxlength="500"
+                  auto-height="{{true}}"/>
+      </view>
+    </view>
+
+    <!-- 参考素材 -->
+    <view class="form-section">
+      <view class="form-section-title">参考素材（选填）</view>
+      <view class="upload-grid">
+        <view class="upload-item" wx:for="{{materials}}" wx:key="id">
+          <image class="upload-img" src="{{item.tempPath}}" mode="aspectFill"
+                 data-index="{{index}}" bindtap="previewImage"></image>
+          <view class="upload-remove" data-id="{{item.id}}" catchtap="removeImage">×</view>
+        </view>
+        <view class="upload-add" bindtap="chooseImages" wx:if="{{materials.length < 9}}">
+          <text class="upload-add-icon">+</text>
+          <text class="upload-add-text">上传图片</text>
+        </view>
+      </view>
+      <view class="upload-hint">最多上传9张，单张不超过5M</view>
+    </view>
+
+    <view class="bottom-space"></view>
+  </view>
+
+  <!-- 底部提交按钮 -->
+  <view class="bottom-bar">
+    <button class="submit-btn {{submitting ? 'disabled' : ''}}" bindtap="onSubmit">
+      {{submitting ? '提交中...' : '提交需求'}}
+    </button>
+  </view>
+</view>

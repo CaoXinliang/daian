@@ -1,0 +1,12 @@
+<view class="container">
+  <view class="tip">请留下您宝贵的意见或建议</view>
+  <textarea
+    class="feedback-input"
+    placeholder="请输入您的意见或建议..."
+    value="{{content}}"
+    bindinput="onInput"
+    maxlength="500"
+    auto-height
+  />
+  <button class="submit-btn" bindtap="onSubmit">提交</button>
+</view>

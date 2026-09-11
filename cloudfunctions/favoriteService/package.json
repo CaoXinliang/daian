@@ -1,0 +1,9 @@
+{
+  "name": "favoriteService",
+  "version": "1.0.0",
+  "description": "产品收藏服务：收藏/取消/查询/列表",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

@@ -1,0 +1,16 @@
+<view class="success-page">
+  <view class="success-icon">✓</view>
+  <view class="success-title">提交成功</view>
+  <view class="success-sub">我们已收到您的设计需求</view>
+
+  <view class="order-card">
+    <view class="order-label">项目编号</view>
+    <view class="order-no">{{orderNo}}</view>
+    <!-- <view class="order-tip">设计师将在24小时内与您联系</view> -->
+  </view>
+
+  <view class="btn-group">
+    <button class="btn-primary" bindtap="goToProjects">查看我的项目</button>
+    <button class="btn-secondary" bindtap="goHome">返回首页</button>
+  </view>
+</view>

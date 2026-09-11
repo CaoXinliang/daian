@@ -1,0 +1,71 @@
+.login-page {
+  min-height: 100vh;
+  background: linear-gradient(180deg, #f0f4f8 0%, #ffffff 60%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.logo-area {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 160rpx;
+  padding-bottom: 80rpx;
+}
+
+.logo-icon {
+  width: 140rpx;
+  height: 140rpx;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #07c160 0%, #06ad56 100%);
+  color: #ffffff;
+  font-size: 64rpx;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 28rpx;
+  box-shadow: 0 8rpx 30rpx rgba(7, 193, 96, 0.3);
+}
+
+.app-name {
+  font-size: 44rpx;
+  font-weight: bold;
+  color: #1a1a1a;
+  margin-bottom: 8rpx;
+}
+
+.app-desc {
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.login-area {
+  width: 85%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 80rpx;
+}
+
+.one-click-btn {
+  width: 100%;
+  height: 96rpx;
+  line-height: 96rpx;
+  background-color: #07c160;
+  color: #ffffff;
+  font-size: 36rpx;
+  border-radius: 48rpx;
+  border: none;
+  margin-bottom: 30rpx;
+}
+
+.one-click-btn::after {
+  border: none;
+}
+
+.tip-text {
+  font-size: 24rpx;
+  color: #bbbbbb;
+}

@@ -1,0 +1,9 @@
+{
+  "name": "getStoreImages",
+  "version": "1.0.0",
+  "description": "以管理员权限查询cloudImages集合并返回图片临时URL",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

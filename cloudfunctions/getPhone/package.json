@@ -1,0 +1,9 @@
+{
+  "name": "getPhone",
+  "version": "1.0.0",
+  "description": "通过 getPhoneNumber 的 code 换取用户真实手机号",
+  "main": "index.js",
+  "dependencies": {
+    "wx-server-sdk": "~2.6.3"
+  }
+}

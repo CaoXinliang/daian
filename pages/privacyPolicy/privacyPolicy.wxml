@@ -1,0 +1,83 @@
+<view class="container">
+  <view class="content">
+    <view class="title">隐私政策</view>
+    <view class="update-date">更新日期：2026年8月29日</view>
+
+    <view class="section">
+      <view class="section-text">岱安传媒（以下简称"本小程序"）由赣州岱安传媒有限公司（以下简称"我们"）开发和运营。我们高度重视用户隐私保护，本《隐私政策》旨在向您说明我们如何收集、使用、存储和保护您的个人信息。请您在使用本小程序前仔细阅读本政策。您使用本小程序即表示您同意本政策所述的信息处理方式。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">一、我们收集的信息</view>
+      <view class="section-text">在您使用本小程序的过程中，我们会收集以下信息：</view>
+      <view class="section-text sub">1. 手机号码：当您点击"立即登录"并授权手机号后，我们通过微信官方手机号验证组件获取您的手机号，用于用户注册、登录和身份验证。</view>
+      <view class="section-text sub">2. 微信头像：当您点击头像并选择微信头像时，我们获取您的微信头像并上传至云存储，用于个人资料展示。</view>
+      <view class="section-text sub">3. 昵称：您可以在账号信息页面设置或修改昵称，我们将保存您的昵称用于个人资料展示。</view>
+      <view class="section-text sub">4. 意见反馈内容：当您在意见反馈页面提交反馈时，我们会保存您输入的文本内容及您的手机号，用于处理您的反馈建议。</view>
+      <view class="section-text sub">5. 登录时间：每次您登录时，我们会记录登录时间，用于安全审计和账号管理。</view>
+      <view class="section-text">我们不会收集您的位置信息、通讯录、设备标识等与本小程序功能无关的信息。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">二、信息使用</view>
+      <view class="section-text">我们收集的信息将用于以下目的：</view>
+      <view class="section-text sub">1. 提供用户注册、登录及账号管理功能；</view>
+      <view class="section-text sub">2. 展示您的个人资料（头像、昵称）；</view>
+      <view class="section-text sub">3. 处理您的意见反馈；</view>
+      <view class="section-text sub">4. 保障账号安全，防范风险；</view>
+      <view class="section-text sub">5. 改进和优化小程序功能与服务。</view>
+      <view class="section-text">我们不会将您的信息用于本小程序功能范围之外的其他目的。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">三、信息存储与保护</view>
+      <view class="section-text">1. 您的个人信息存储在微信云开发的安全数据库和云存储中，数据传输和存储均经过加密处理。</view>
+      <view class="section-text">2. 我们采取合理的安全措施保护您的个人信息，防止信息泄露、丢失、篡改或被未授权访问。</view>
+      <view class="section-text">3. 仅经授权的工作人员在必要情况下可访问您的个人信息，且须遵守保密义务。</view>
+      <view class="section-text">4. 在法律法规规定的期限内，我们会保存您的相关信息。超出保存期限或您注销账号后，我们将删除或匿名化处理您的个人信息。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">四、信息共享与披露</view>
+      <view class="section-text">1. 我们不会向第三方出售您的个人信息。</view>
+      <view class="section-text">2. 在以下情形下，我们可能会共享或披露您的个人信息：</view>
+      <view class="section-text sub">（1）获得您的明确同意；</view>
+      <view class="section-text sub">（2）根据法律法规或政府主管部门的要求；</view>
+      <view class="section-text sub">（3）为维护我们的合法权益，如应对诉讼、仲裁等；</view>
+      <view class="section-text sub">（4）在法律法规允许的范围内，为保护他人人身安全或财产权益所必需。</view>
+      <view class="section-text">3. 本小程序使用微信云开发服务，您的数据存储在腾讯云服务器上，腾讯云作为数据处理者，按照其隐私政策处理相关数据。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">五、用户权利</view>
+      <view class="section-text">您对自己的个人信息享有以下权利：</view>
+      <view class="section-text sub">1. 查询权：您可在"账号信息"页面查看您的昵称和手机号。</view>
+      <view class="section-text sub">2. 修改权：您可在"账号信息"页面修改昵称，可在"我的"页面更换头像。</view>
+      <view class="section-text sub">3. 删除权：您可通过"注销账号"功能删除您的账号及全部个人信息，注销后数据不可恢复。</view>
+      <view class="section-text sub">4. 退出登录：您可在"账号信息"页面点击"退出登录"退出当前登录状态，退出后本地缓存将被清除。</view>
+      <view class="section-text">如您需行使上述权利或对本隐私政策有任何疑问，请通过本政策末尾的联系方式与我们联系。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">六、未成年人保护</view>
+      <view class="section-text">1. 本小程序主要面向成年商户提供产品展示工具，不针对未成年人提供服务。</view>
+      <view class="section-text">2. 若您是未成年人，请在监护人陪同下阅读本隐私政策并使用本小程序。</view>
+      <view class="section-text">3. 我们不会主动收集未成年人个人信息。若发现未成年人在未经监护人同意的情况下使用本小程序，我们将采取措施删除相关信息。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">七、隐私政策更新</view>
+      <view class="section-text">1. 我们可能根据法律法规变化或业务调整更新本隐私政策。</view>
+      <view class="section-text">2. 更新后的隐私政策将在本小程序内公示，您继续使用即视为同意更新内容。</view>
+      <view class="section-text">3. 对于重大变更，我们将在小程序内以显著方式通知您。</view>
+    </view>
+
+    <view class="section">
+      <view class="section-title">八、联系方式</view>
+      <view class="section-text">如您对本隐私政策有任何疑问、意见或建议，可通过以下方式联系我们：</view>
+      <view class="section-text">联系人：刘老师</view>
+      <view class="section-text">联系电话：18779728272</view>
+      <view class="section-text">联系邮箱：1260026916@qq.com</view>
+    </view>
+  </view>
+</view>

@@ -1,0 +1,139 @@
+<!-- 顶部导航栏（滚动时显示标题） -->
+<view class="custom-nav {{navBarVisible ? 'nav-solid' : 'nav-transparent'}}" style="height: {{navTotalHeight}}px;">
+  <view style="height: {{statusBarHeight}}px;"></view>
+  <view class="nav-content">
+    <view class="nav-back" wx:if="{{canBack}}" bindtap="goBack">
+      <view class="nav-back-circle">
+        <text class="nav-back-arrow">‹</text>
+      </view>
+    </view>
+    <text class="nav-title" wx:if="{{navBarVisible}}">{{productData.title}}</text>
+  </view>
+</view>
+
+<!-- 页面主体 -->
+<view class="container">
+
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <!-- 错误提示 -->
+  <view class="error-wrap" wx:elif="{{error}}">
+    <text class="error-text">{{error}}</text>
+  </view>
+
+  <!-- 产品内容 -->
+  <block wx:elif="{{productData}}">
+
+    <!-- Banner区 -->
+    <view class="banner-section" wx:if="{{productData.modules.banner}}">
+      <image class="banner-img" src="{{productData.banner_url}}" mode="aspectFill"></image>
+      <view class="banner-content">
+        <text class="page-name banner-title">{{productData.title}}</text>
+        <text class="banner-subtitle" wx:if="{{productData.banner_sub_title}}">{{productData.banner_sub_title}}</text>
+      </view>
+    </view>
+
+    <!-- 产品类型 一行三封面 -->
+    <view class="section-block" wx:if="{{productData.modules.product_type && productData.product_types.length > 0}}">
+      <view class="section-header">
+        <text class="section-title">{{productData.pt_module_name || '产品类型'}}</text>
+        <text class="section-subtitle" wx:if="{{productData.pt_sub_title}}">{{productData.pt_sub_title}}</text>
+      </view>
+      <view class="pt-grid">
+        <view class="pt-card" wx:for="{{productData.product_types}}" wx:key="name" wx:for-index="idx" data-index="{{idx}}" bindtap="onTypeTap">
+          <view class="pt-card-img-wrap">
+            <image class="pt-card-img" src="{{item.cover_url}}" mode="aspectFill"></image>
+          </view>
+          <text class="pt-card-name">{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+
+    <!-- 产品系列 一行两封面 - 直接展示商品 -->
+    <view class="section-block" wx:if="{{productData.modules.product_series && productData.product_series.length > 0}}">
+      <view class="section-header">
+        <text class="section-title">{{productData.ps_module_name || '产品系列'}}</text>
+        <text class="section-subtitle" wx:if="{{productData.ps_sub_title}}">{{productData.ps_sub_title}}</text>
+      </view>
+      <block wx:for="{{productData.product_series}}" wx:key="name" wx:for-item="series" wx:for-index="sIdx">
+        <view class="ps-goods-grid">
+          <view class="ps-goods-card" wx:for="{{series.goods}}" wx:key="id" wx:for-item="good" data-id="{{good.id}}" bindtap="onGoodTap">
+            <image class="ps-goods-img" src="{{good.cover_url}}" mode="aspectFill"></image>
+            <text class="ps-goods-name">{{good.name}}</text>
+          </view>
+        </view>
+      </block>
+    </view>
+
+    <!-- 联系我们 -->
+    <view class="section-block contact-section" wx:if="{{productData.modules.contact_us}}">
+      <view class="contact-title-wrap">
+        <text class="contact-title">联系我们</text>
+      </view>
+      <view class="contact-list">
+        <view class="contact-item" wx:if="{{productData.contact_phone}}">
+          <view class="contact-icon contact-icon-phone"></view>
+          <text class="contact-label">电话</text>
+          <text class="contact-value">{{productData.contact_phone}}</text>
+          <view class="contact-btn" bindtap="onCallPhone">
+            <text>打电话</text>
+          </view>
+        </view>
+        <view class="contact-item" wx:if="{{productData.contact_email}}">
+          <view class="contact-icon contact-icon-email"></view>
+          <text class="contact-label">邮箱</text>
+          <text class="contact-value">{{productData.contact_email}}</text>
+          <view class="contact-btn" bindtap="onSendEmail">
+            <text>发邮件</text>
+          </view>
+        </view>
+        <view class="contact-item" wx:if="{{productData.contact_address}}">
+          <view class="contact-icon contact-icon-addr"></view>
+          <text class="contact-label">地址</text>
+          <text class="contact-value contact-value-addr">{{productData.contact_address}}</text>
+          <view class="contact-btn" bindtap="onNavigate">
+            <text>去导航</text>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 底部操作栏（不固定，放在页面最底部） -->
+    <view class="bottom-bar">
+      <view class="bottom-btn" bindtap="onFavorite">
+        <text class="bottom-btn-icon">{{isFavorited ? '★' : '☆'}}</text>
+        <text class="bottom-btn-text">{{isFavorited ? '已收藏' : '收藏'}}</text>
+      </view>
+      <button class="bottom-btn bottom-btn-share" open-type="share">
+        <text class="bottom-btn-icon">↗</text>
+        <text class="bottom-btn-text">分享</text>
+      </button>
+      <view class="bottom-btn" bindtap="onMore">
+        <text class="bottom-btn-icon">☰</text>
+        <text class="bottom-btn-text">更多</text>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 邮箱弹窗 -->
+<view class="modal-overlay" wx:if="{{showEmailModal}}" bindtap="closeEmailModal">
+  <view class="email-modal" catchtap="">
+    <view class="email-modal-header">
+      <text class="email-modal-title">发邮件</text>
+      <view class="email-modal-close" bindtap="closeEmailModal">
+        <text class="email-modal-close-icon">×</text>
+      </view>
+    </view>
+    <view class="email-display-box">
+      <text class="email-display-text">邮箱：{{productData.contact_email}}</text>
+    </view>
+    <view class="email-copy-btn" bindtap="copyEmail">
+      <text>复制邮箱</text>
+    </view>
+  </view>
+</view>

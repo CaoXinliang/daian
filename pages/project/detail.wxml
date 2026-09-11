@@ -1,0 +1,77 @@
+<view class="detail-page">
+  <!-- 加载中 -->
+  <view class="loading-wrap" wx:if="{{loading}}">
+    <view class="loading-spinner"></view>
+    <text class="loading-text">加载中...</text>
+  </view>
+
+  <block wx:elif="{{project}}">
+    <!-- 顶部状态卡 -->
+    <view class="status-card">
+      <view class="status-tag" style="background: {{project.status_color}};">{{project.status_text}}</view>
+      <view class="status-project">{{project.project_name}}</view>
+      <view class="status-order">编号：{{project.order_no}}</view>
+    </view>
+
+    <!-- 进度时间轴 -->
+    <view class="section">
+      <view class="section-title">项目进度</view>
+      <view class="timeline">
+        <view class="tl-item" wx:for="{{project.timeline}}" wx:key="time">
+          <view class="tl-dot {{item.done ? 'done' : ''}}"></view>
+          <view class="tl-content">
+            <view class="tl-top">
+              <text class="tl-title">{{item.text}}</text>
+              <text class="tl-time">{{item.time}}</text>
+            </view>
+            <view class="tl-desc">{{item.desc}}</view>
+          </view>
+          <view class="tl-line" wx:if="{{index < project.timeline.length - 1}}"></view>
+        </view>
+      </view>
+    </view>
+
+    <!-- 设计师信息 -->
+    <view class="section" wx:if="{{project.designer_name}}">
+      <view class="section-title">对接设计师</view>
+      <view class="designer-card">
+        <image class="designer-avatar" src="{{project.designer_avatar || '/images/default_avatar.png'}}" mode="aspectFill"></image>
+        <view class="designer-info">
+          <view class="designer-name">{{project.designer_name}}</view>
+          <view class="designer-role">主设计师</view>
+        </view>
+        <view class="designer-btn" bindtap="contactDesigner">联系</view>
+      </view>
+    </view>
+
+    <!-- 需求描述 -->
+    <view class="section" wx:if="{{project.description}}">
+      <view class="section-title">需求描述</view>
+      <view class="desc-card">
+        <text class="desc-text">{{project.description}}</text>
+      </view>
+    </view>
+
+    <!-- 参考素材 -->
+    <view class="section" wx:if="{{project.materials.length > 0}}">
+      <view class="section-title">参考素材</view>
+      <view class="material-grid">
+        <image class="material-img" wx:for="{{project.materials}}" wx:key="*this"
+               src="{{item}}" mode="aspectFill"
+               data-url="{{item}}" bindtap="previewMaterial"/>
+      </view>
+    </view>
+
+    <!-- 交付文件 -->
+    <view class="section" wx:if="{{project.deliver_files.length > 0}}">
+      <view class="section-title">交付文件</view>
+      <view class="deliver-grid">
+        <image class="deliver-img" wx:for="{{project.deliver_files}}" wx:key="*this"
+               src="{{item}}" mode="aspectFill"
+               data-url="{{item}}" bindtap="previewDeliver"/>
+      </view>
+    </view>
+
+    <view class="bottom-space"></view>
+  </block>
+</view>

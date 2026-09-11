@@ -1,0 +1,28 @@
+<view class="container">
+  <!-- 功能列表 -->
+  <view class="menu-list">
+    <view class="menu-item" bindtap="onAbout">
+      <view class="menu-text">关于我们</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onUserAgreement">
+      <view class="menu-text">用户协议</view>
+      <view class="menu-arrow">></view>
+    </view>
+    <view class="menu-item" bindtap="onPrivacyPolicy">
+      <view class="menu-text">隐私政策</view>
+      <view class="menu-arrow">></view>
+    </view>
+  </view>
+
+  <!-- 关于我们弹窗 -->
+  <view class="modal-mask" wx:if="{{showAbout}}" bindtap="closeAbout" catchtouchmove="preventTouchMove">
+    <view class="modal-content" catchtap="preventTouchMove">
+      <view class="modal-title">关于我们</view>
+      <view class="modal-text">
+        本小程序主要为家具批发零售门店提供线上产品展示工具，支持商品图册浏览、款式分类、详情展示等功能，帮助商家便捷地向客户呈现产品。后续还将拓展至餐饮等行业，为不同实体商户提供定制化小程序开发服务，满足多样化的展示与营销需求。
+      </view>
+      <view class="modal-btn" bindtap="closeAbout">我知道了</view>
+    </view>
+  </view>
+</view>

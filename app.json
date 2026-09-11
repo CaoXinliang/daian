@@ -1,0 +1,54 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/mine/mine",
+    "pages/store1/store1",
+    "pages/store1sub/store1sub",
+    "pages/store1detail/store1detail",
+    "pages/login/login",
+    "pages/upload/upload",
+    "pages/account/account",
+    "pages/deleteAccount/deleteAccount",
+    "pages/feedback/feedback",
+    "pages/about/about",
+    "pages/userAgreement/userAgreement",
+    "pages/privacyPolicy/privacyPolicy",
+    "pages/product/template",
+    "pages/product/list",
+    "pages/product/detail",
+    "pages/favorites/favorites",
+    "pages/service/detail",
+    "pages/demand/form",
+    "pages/demand/success",
+    "pages/project/list",
+    "pages/project/detail"
+  ],
+  "window": {
+    "navigationBarTitleText": "岱安传媒",
+    "navigationBarBackgroundColor": "#ffffff",
+    "navigationBarTextStyle": "black",
+    "backgroundColor": "#ffffff"
+  },
+  "tabBar": {
+    "color": "#999999",
+    "selectedColor": "#4AA39C",
+    "backgroundColor": "#ffffff",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "images/tab_home.png",
+        "selectedIconPath": "images/tab_home_active.png"
+      },
+      {
+        "pagePath": "pages/mine/mine",
+        "text": "我的",
+        "iconPath": "images/tab_mine.png",
+        "selectedIconPath": "images/tab_mine_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

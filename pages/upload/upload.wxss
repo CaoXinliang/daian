@@ -1,0 +1,111 @@
+.upload-page {
+  min-height: 100vh;
+  background-color: #f5f5f5;
+  padding: 40rpx 30rpx;
+}
+
+.header {
+  margin-bottom: 50rpx;
+}
+
+.title {
+  display: block;
+  font-size: 40rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.desc {
+  display: block;
+  font-size: 26rpx;
+  color: #999999;
+  line-height: 1.6;
+}
+
+.progress-area {
+  margin-bottom: 40rpx;
+}
+
+.progress-bar-bg {
+  width: 100%;
+  height: 16rpx;
+  background-color: #e0e0e0;
+  border-radius: 8rpx;
+  overflow: hidden;
+  margin-bottom: 12rpx;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #07c160, #06ad56);
+  border-radius: 8rpx;
+  transition: width 0.3s ease;
+}
+
+.progress-text {
+  font-size: 26rpx;
+  color: #666666;
+}
+
+.log-area {
+  margin-bottom: 40rpx;
+  background-color: #ffffff;
+  border-radius: 16rpx;
+  padding: 24rpx;
+}
+
+.log-title {
+  display: block;
+  font-size: 28rpx;
+  font-weight: bold;
+  color: #333333;
+  margin-bottom: 16rpx;
+}
+
+.log-list {
+  display: flex;
+  flex-direction: column;
+}
+
+.log-item {
+  font-size: 24rpx;
+  color: #666666;
+  line-height: 2;
+}
+
+.upload-btn {
+  width: 100%;
+  height: 90rpx;
+  line-height: 90rpx;
+  background-color: #07c160;
+  color: #ffffff;
+  font-size: 32rpx;
+  border-radius: 45rpx;
+  border: none;
+}
+
+.upload-btn::after {
+  border: none;
+}
+
+.upload-btn[disabled] {
+  background-color: #cccccc;
+  color: #ffffff;
+}
+
+.back-btn {
+  width: 100%;
+  height: 80rpx;
+  line-height: 80rpx;
+  background-color: #ffffff;
+  color: #07c160;
+  font-size: 30rpx;
+  border-radius: 40rpx;
+  border: 2rpx solid #07c160;
+  margin-top: 20rpx;
+}
+
+.back-btn::after {
+  border: none;
+}
